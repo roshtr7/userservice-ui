@@ -21,14 +21,12 @@
                 <td>{{userData.firstName}}</td>
                 <td>{{userData.lastName}}</td>
                 <td>{{userData.email}}</td>
-                <td>{{userData.dob}}</td>
-                <td>{{userData.doj}}</td>
+                <td>{{userData.dob | date }}</td>
+                <td>{{userData.doj | date}}</td>
                 <td>{{userData.pinCode}}</td>
-                <td><button type="button" class="btn btn-primary">Edit</button> </td>
-                <td><button type="button" class="btn btn-danger">Delete</button> </td>
-                
+                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-danger" (click) = "onDelete(userData)" >Delete</button></td>
             </tr>
-
         </tbody>
     </table>
 </div>

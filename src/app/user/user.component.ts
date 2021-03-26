@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { MatDatepickerModule, MatInputModule, MatNativeDateModule } from '@angular/material';
+
 
 @Component({
   selector: 'app-user',
@@ -9,7 +14,7 @@ import { HttpClient } from '@angular/common/http'
 })
 export class UserComponent implements OnInit {
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   userDto = {
@@ -35,12 +40,22 @@ export class UserComponent implements OnInit {
 
     console.log(this.userDto);
     // this.http.post('http://localhost:8080/user', JSON.stringify(this.data)).subscribe(...);
-    this.http.post('http://localhost:8080/user',this.userDto).subscribe(res => {
+    this.http.post('http://localhost:8080/user', this.userDto).subscribe(res => {
 
-    console.log('');
+      console.log('');
+      Swal.fire(
+        'Success!',
+        'User created successfully!',
+        'success'
+      )
 
     }, error => {
       alert(JSON.stringify(error));
+      Swal.fire(
+        'Error!',
+        'There was an error. Please try again later',
+        'error'
+      )
     });
   }
 

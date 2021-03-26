@@ -8,6 +8,10 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { UserlistComponent } from './userlist/userlist.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsereditComponent } from './useredit/useredit.component';
+
 
 const appRoutes: Routes = [
   {path:'', component: UserComponent},
@@ -19,7 +23,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     UserComponent,
-    UserlistComponent
+    UserlistComponent,
+    UsereditComponent
   ],
   exports: [UserComponent],
   imports: [
@@ -27,7 +32,9 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent, UserComponent]
